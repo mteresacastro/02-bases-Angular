@@ -7,12 +7,28 @@
   <dd>{{age}}</dd>
 
   <td>Método:</td>
-  <dd> algún método </dd>
+  <dd> {{getHeroDescription()}} </dd>
 
   <td>Capitalizado:</td>
-  <dd> nombre capitalizado </dd>
+  <dd> {{capitalizeName}}</dd>
 </dl>
 
-<button class="btn btn-primary m-2"> Cambiar Nombre</button>
+<button
+  *ngIf="name !== 'Spiderman'"
+  (click)="changeName()"
+  class="btn btn-primary m-2">
+  Cambiar Nombre
+</button>
 
-<button class="btn btn-primary m-2"> Cambiar Edad</button>
+<button
+  *ngIf="age !== 18"
+  (click)="changeAge()"
+  class="btn btn-primary m-2">
+  Cambiar Edad
+</button>
+
+<button
+  (click)="resetForm()"
+  class="btn btn-primary m-2">
+  Reset Form
+</button>
