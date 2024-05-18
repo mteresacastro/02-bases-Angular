@@ -7,13 +7,9 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'bases';
-  counter = 20;
-
-  increaseBy(value: number):void {
-    this.counter += value;
-  };
-
-  resetCounter():void {
-    this.counter = 20;
-  }
 }
+
+
+
+
+
