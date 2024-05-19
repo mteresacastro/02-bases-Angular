@@ -1,6 +1,6 @@
 import { Character } from './../../interfaces/character.interface';
 
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-dbz-add-character',
@@ -10,6 +10,9 @@ import { Component } from '@angular/core';
 })
 export class AddCharacterComponent {
 
+  @Output()
+  public onNewCharacter: EventEmitter<Character> = new EventEmitter();
+
   public character: Character = {
 
       name: '',
@@ -18,5 +21,14 @@ export class AddCharacterComponent {
 
   emitCharacter(): void {
     console.log(this.character);
+    const characterClone = JSON.parse(JSON.stringify(this.character));
+
+    if(this.character.name.length === 0) return;
+
+    this.onNewCharacter.emit(characterClone);
+    this.character.name = '';
+    this.character.power = 0;
+
   }
- }
+
+}

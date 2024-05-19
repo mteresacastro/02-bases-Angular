@@ -1,6 +1,6 @@
 <h4>Agregar personaje</h4>
 
-<form class="row" action="">
+<form class="row" action="" (ngSubmit)="emitCharacter()">
 
   <input
     type="text"
@@ -15,11 +15,11 @@
 
   <button
     type="submit"
-    class="btn btn-primary m-2"
-    (click)="emitCharacter()">
+    class="btn btn-primary m-2">
+    <!-- (click)="emitCharacter()"  anotamos este click para explicar el ngModel, la comunicacion bidireccional, pero no se debe hacer asi, se debe hacer en el form con (ngSubmit) -->
     Agregar
   </button>
 
-  <pre>{{character | json }}</pre>
+  <!-- <pre>{{character | json }}</pre> -->
 
 </form>
