@@ -19,11 +19,20 @@ export class ListComponent {
     }
   ]
 
-  @Output()
-  public onDelete : EventEmitter<number> = new EventEmitter()
+  // @Output()
+  // public onDelete : EventEmitter<number> = new EventEmitter()
 
-  onDeleteCharacter(index:number):void {
-    //TODO emitir indice
-    this.onDelete.emit(index);
+  // onDeleteCharacter(index:number):void {
+  //   //TODO emitir indice
+  //   this.onDelete.emit(index);
+  // }
+
+  @Output()
+  public onDelete : EventEmitter<string> = new EventEmitter()
+
+  onDeleteCharacter(id?: string):void {
+    if (!id) return;
+    this.onDelete.emit(id);
   }
+
  }
